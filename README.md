@@ -30,11 +30,26 @@ pip install -r requirements.txt
 uvicorn app:app --reload --port 8000
 ```
 
-Optional local AI:
-```bash
-ollama pull llama3.2:3b
+### Local AI setup
+
+TouchGrass AI uses Ollama for local inference. The verified development configuration uses **Qwen2.5 1.5B**.
+
+Install Ollama, then download the model:
+
+```powershell
+ollama pull qwen2.5:1.5b
 ```
-Then set `OLLAMA_MODEL=llama3.2:3b` before starting the backend. Model size and performance depend on your hardware. The app falls back to curated missions if Ollama is unavailable.
+
+Set the model before starting the backend:
+
+```powershell
+$env:OLLAMA_MODEL = "qwen2.5:1.5b"
+python -m uvicorn app:app --reload --port 8000
+```
+
+The model runs locally through Ollama. If the backend or model is unavailable, the application falls back to built-in outdoor missions.
+
+The model must be downloaded before it can run offline. Review the model's own license and terms before redistributing model weights or building on it.
 
 ## Run the frontend
 In a second terminal:
