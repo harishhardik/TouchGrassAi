@@ -1,0 +1,29 @@
+﻿# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.coverage
+htmlcov/
+
+# Node.js
+node_modules/
+dist/
+.vite/
+
+# Local model and generated data
+*.gguf
+models/
+data/local/
+
+# Operating system and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
